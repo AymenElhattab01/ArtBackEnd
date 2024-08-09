@@ -23,7 +23,7 @@ public class Formation {
     private Date Debut ;
     private Date Fin ;
     private int  heures ;
-    private Float prix ;
+    private Float price ;
 
 
     @ManyToOne
