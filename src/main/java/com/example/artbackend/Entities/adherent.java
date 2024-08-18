@@ -6,26 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class  Utilisateur{
+public class adherent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String password;
-    private String numero;
-    private int age;
-
-    @OneToMany(mappedBy = "utilisateur")
-    private  List<adherent> adherents;
-
-
-
+    private int id ;
+    @ManyToOne
+    @JsonIgnore
+    private Utilisateur utilisateur ;
+    private String type ;
+    private int idType ;
 }

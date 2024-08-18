@@ -1,6 +1,7 @@
 package com.example.artbackend.Service;
 
 import com.example.artbackend.Entities.Atelier;
+import com.example.artbackend.Entities.SousAtelier;
 import com.example.artbackend.Repository.AtelierRepository;
 import com.example.artbackend.Repository.SousAtelierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,23 @@ public class AtelierService {
     @Autowired
     SousAtelierRepository SR;
 
-
+public void AddAtelier(Atelier atelier){
+    AR.save(atelier);
+}
+public void UpdateAtelier(Atelier atelier){
+    AR.save(atelier);
+}
+public void DeleteAtelier(Atelier atelier){
+    AR.delete(atelier);
+}
 
     public List<Atelier> GetAllAtelier(){
         return  AR.findAll();
     }
+
+
+    public List<SousAtelier> GetAllSousAtelier(int id ){
+        return  SR.findByAtelier_Id( id );}
 
 
 

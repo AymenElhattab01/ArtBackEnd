@@ -22,8 +22,7 @@ public class Evenement {
     private  Date dateFin;
     private Float prix ;
 
-    @ManyToOne
-    private    Utilisateur utilisateur;
+
 
 
     @OneToMany(mappedBy = "evenement")

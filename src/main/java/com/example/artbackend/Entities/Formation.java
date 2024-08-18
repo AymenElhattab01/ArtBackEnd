@@ -26,9 +26,7 @@ public class Formation {
     private Float prix ;
 
 
-    @ManyToOne
 
-    private Utilisateur utilisateur ;
 
     @OneToMany(mappedBy = "formation")
     private  List<Media> media;

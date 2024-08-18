@@ -18,8 +18,6 @@ import java.util.List;
 public class ControllerTableau {
     @Autowired
     TableauService TS;
-
-
     @GetMapping("/GetArtiste")
      ResponseEntity<List<Artiste>> GetTableau() {
         try{
@@ -28,6 +26,7 @@ public class ControllerTableau {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }}
+
         @GetMapping("/GetTableaux/{id}")
      ResponseEntity<List<Tableau>> GetTableau(@PathVariable int id ) {
             try {

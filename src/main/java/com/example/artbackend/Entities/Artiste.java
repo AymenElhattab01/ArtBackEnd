@@ -26,7 +26,4 @@ public class  Artiste{
     @OneToMany(mappedBy = "artiste")
     @JsonIgnore
     private List<Tableau> tableaux;
-
-
-
 }
