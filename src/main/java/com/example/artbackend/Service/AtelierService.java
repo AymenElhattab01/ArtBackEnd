@@ -20,12 +20,17 @@ public class AtelierService {
 public void AddAtelier(Atelier atelier){
     AR.save(atelier);
 }
-public void UpdateAtelier(Atelier atelier){
-    AR.save(atelier);
+public void AddSousAtelier(SousAtelier atelier){
+    SR.save(atelier);
 }
+public void DeleteSousAtelier(SousAtelier atelier){
+    SR.delete(atelier);
+}
+
 public void DeleteAtelier(Atelier atelier){
     AR.delete(atelier);
 }
+
 
     public List<Atelier> GetAllAtelier(){
         return  AR.findAll();

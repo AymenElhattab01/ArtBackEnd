@@ -19,7 +19,7 @@ public class Atelier {
     private String name ;
     private String Description ;
     @OneToMany(mappedBy = "atelier")
-            @JsonIgnore
+  @JsonIgnore
     List<SousAtelier> sousateliers;
 
     private String image;

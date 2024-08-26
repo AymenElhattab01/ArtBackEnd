@@ -21,10 +21,6 @@ public class Evenement {
     private Date dateDebut;
     private  Date dateFin;
     private Float prix ;
-
-
-
-
     @OneToMany(mappedBy = "evenement")
     private  List<Media> media;
 

@@ -19,12 +19,8 @@ public class SousAtelier {
     private String name ;
     private String Description ;
     @ManyToOne
-
     private Atelier atelier;
     private Float prix ;
-
-
-
     @OneToMany(mappedBy = "sousAtelier")
     private List<Media> media;
 
