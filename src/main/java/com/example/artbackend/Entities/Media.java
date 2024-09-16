@@ -15,8 +15,6 @@ public class Media{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String Path;
-
-
         @ManyToOne
         @JsonIgnore
         private Evenement evenement;

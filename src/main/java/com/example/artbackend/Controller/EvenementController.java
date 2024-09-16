@@ -1,7 +1,7 @@
 package com.example.artbackend.Controller;
 
-import com.example.artbackend.Entities.Formation;
-import com.example.artbackend.Service.FormationService;
+import com.example.artbackend.Entities.Evenement;
+import com.example.artbackend.Service.EvenementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,22 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Formation")
+@RequestMapping("/Evenemet")
 @CrossOrigin(origins = "http://localhost:4200")
-
-public class FormationController {
+public class EvenementController {
     @Autowired
-    private FormationService formationService;
+    EvenementService ES;
 
 
-    @GetMapping("/GetFormation")
-    public ResponseEntity<List<Formation>> GetFormation() {
+
+    @GetMapping("/GetAll")
+    public ResponseEntity<List<Evenement>> GetAll() {
         try {
-            List<Formation> formations = formationService.GetAllFormation();
-            return ResponseEntity.ok(formations );
-        }catch (Exception e){
-            return ResponseEntity.notFound().build();
+
+            List<Evenement> evenements = ES.GetAllEvents();
+            return ResponseEntity.ok(evenements);
+        }catch (Exception e ){
+            return ResponseEntity.status(500).body(null);
         }
+
     }
 
 }

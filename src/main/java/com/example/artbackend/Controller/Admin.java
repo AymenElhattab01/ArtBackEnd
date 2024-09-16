@@ -1,13 +1,13 @@
 package com.example.artbackend.Controller;
 
-import com.example.artbackend.Entities.Artiste;
-import com.example.artbackend.Entities.Atelier;
-import com.example.artbackend.Entities.SousAtelier;
-import com.example.artbackend.Entities.Tableau;
+import com.example.artbackend.Entities.*;
 import com.example.artbackend.Service.AtelierService;
+import com.example.artbackend.Service.MediaService;
 import com.example.artbackend.Service.TableauService;
 import jakarta.servlet.http.HttpServlet;
 import org.apache.coyote.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +15,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("Admin")
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class Admin {
-@Autowired
+
+    @Autowired
     TableauService  TS;
 @Autowired
 AtelierService AS;
+
+
+@Autowired
+MediaService MS;
 
 
 
@@ -100,6 +107,18 @@ AtelierService AS;
         AS.DeleteSousAtelier(a);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }catch (Exception e){
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+}
+
+
+    @PostMapping("/AddMedia")
+    public ResponseEntity<HttpServlet> addMedia(@RequestBody Media m) {
+    try {
+        MS.AddMedia(m);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }catch (Exception e ){
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

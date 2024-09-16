@@ -15,6 +15,8 @@ import java.util.Optional;
 
 @RequestMapping("/Adhrent")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class AdhrenetController {
     @Autowired
     ServiceUtilisateur SU;
